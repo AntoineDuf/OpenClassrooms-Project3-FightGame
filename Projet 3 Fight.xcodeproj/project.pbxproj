@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B4D32D42288709800D0EB3C /* InfosPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D32D32288709800D0EB3C /* InfosPlayers.swift */; };
+		8BA854BB228C7C8700153B57 /* InfosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BA228C7C8700153B57 /* InfosCharacter.swift */; };
 		8BCC59ED22836011007948F2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59EC22836011007948F2 /* main.swift */; };
 		8BCC59F422836177007948F2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59F322836177007948F2 /* Character.swift */; };
 		8BCC59F6228362F5007948F2 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59F5228362F5007948F2 /* Warrior.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		8B4D32D32288709800D0EB3C /* InfosPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosPlayers.swift; sourceTree = "<group>"; };
+		8BA854BA228C7C8700153B57 /* InfosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosCharacter.swift; sourceTree = "<group>"; };
 		8BCC59E922836011007948F2 /* Projet 3 Fight */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Projet 3 Fight"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCC59EC22836011007948F2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8BCC59F322836177007948F2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				8BCC59EC22836011007948F2 /* main.swift */,
 				8B4D32D32288709800D0EB3C /* InfosPlayers.swift */,
+				8BA854BA228C7C8700153B57 /* InfosCharacter.swift */,
 				8BCC59F322836177007948F2 /* Character.swift */,
 				8BCC59F5228362F5007948F2 /* Warrior.swift */,
 				8BCC59F722836318007948F2 /* Paladin.swift */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA854BB228C7C8700153B57 /* InfosCharacter.swift in Sources */,
 				8BCC59F6228362F5007948F2 /* Warrior.swift in Sources */,
 				8BCC59F822836318007948F2 /* Paladin.swift in Sources */,
 				8BCC59FC22836357007948F2 /* Thief.swift in Sources */,

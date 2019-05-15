@@ -10,14 +10,17 @@ import Foundation
 
 //Creation de la classe personnage
 class Character {
+    var numberCharacter: Int
     var typeCharacter: String
     var nameCharacter: String
     var pvCharacter: Int
     var nameWeapon : String
     var weaponCharacterDmg: Int
-    var presentationCharacter : String {
-        return " \(nameCharacter) the \(typeCharacter) with \(pvCharacter) points of life and armed with \(nameWeapon) that deals \(weaponCharacterDmg) damage points."    }
-    init (typeCharacter: String, nameCharacter: String, pvCharacter: Int,nameWeapon: String, weaponCharacterDmg: Int) {
+    func presentationCharacter() {
+        print ("\(numberCharacter). \(nameCharacter) the \(typeCharacter) with \(pvCharacter) points of life and armed with \(nameWeapon) that deals \(weaponCharacterDmg) damage points.")
+    }
+    init (numberCharacter: Int, typeCharacter: String, nameCharacter: String, pvCharacter: Int,nameWeapon: String, weaponCharacterDmg: Int) {
+        self.numberCharacter = numberCharacter
         self.typeCharacter = typeCharacter
         self.nameCharacter = nameCharacter
         self.pvCharacter = pvCharacter

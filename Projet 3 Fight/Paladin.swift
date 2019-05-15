@@ -10,33 +10,8 @@ import Foundation
 
 //Creation de l'objet Paladin
 class Paladin: Character {
-    override var typeCharacter: String {
-        didSet {
-            typeCharacter = "paladin"
-        }
-    }
-    override var nameCharacter: String {
-        didSet {
-            nameCharacter = "Jacob"
-        }
-    }
-    override var pvCharacter: Int {
-        didSet {
-            pvCharacter = 200
-        }
-    }
-    override var nameWeapon: String {
-        didSet {
-            nameWeapon = "a hammer"
-        }
-    }
-    override var weaponCharacterDmg: Int{
-        didSet {
-            weaponCharacterDmg = 40
-        }
-    }
-    init(){
-        super.init (typeCharacter : "paladin", nameCharacter: "Jacob", pvCharacter: 200, nameWeapon: "hammer", weaponCharacterDmg: 40)
+    init() {
+        super.init (numberCharacter: Number.paladin.rawValue, typeCharacter : Type.paladin.rawValue, nameCharacter: Name.paladin.rawValue, pvCharacter: 200, nameWeapon: Weapon.paladin.rawValue, weaponCharacterDmg: 40)
     }
 }
 

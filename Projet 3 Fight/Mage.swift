@@ -10,32 +10,7 @@ import Foundation
 
 //Creation de l'objet Mage
 class Mage: Character {
-    override var typeCharacter: String {
-        didSet {
-            typeCharacter = "mage"
-        }
-    }
-    override var nameCharacter: String {
-        didSet {
-            nameCharacter = "Aldat"
-        }
-    }
-    override var pvCharacter: Int {
-        didSet {
-            pvCharacter = 120
-        }
-    }
-    override var nameWeapon: String {
-        didSet {
-            nameWeapon = "some gloves"
-        }
-    }
-    override var weaponCharacterDmg: Int{
-        didSet {
-            weaponCharacterDmg = 60
-        }
-    }
     init(){
-        super.init (typeCharacter : "mage", nameCharacter: "Aldat", pvCharacter: 120, nameWeapon: "gloves", weaponCharacterDmg: 60)
+        super.init (numberCharacter: Number.mage.rawValue, typeCharacter : Type.mage.rawValue, nameCharacter: Name.mage.rawValue, pvCharacter: 120, nameWeapon: Weapon.mage.rawValue, weaponCharacterDmg: 60)
     }
 }

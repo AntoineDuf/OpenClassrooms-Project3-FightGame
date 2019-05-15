@@ -10,33 +10,9 @@ import Foundation
 
 //Creation de l'objet Warrior
 class Warrior: Character {
-    override var typeCharacter: String {
-        didSet {
-            typeCharacter = "warrior"
-        }
-    }
-    override var nameCharacter: String {
-        didSet {
-            nameCharacter = "Akin"
-        }
-    }
-    override var pvCharacter: Int {
-        didSet {
-            pvCharacter = 200
-        }
-    }
-    override var nameWeapon: String {
-        didSet {
-            nameWeapon = "a sword"
-        }
-    }
-    override var weaponCharacterDmg: Int{
-        didSet {
-            weaponCharacterDmg = 40
-        }
-    }
     init(){
-        super.init (typeCharacter : "warrior", nameCharacter: "Akin", pvCharacter: 200, nameWeapon: "sword", weaponCharacterDmg: 40)
+        super.init (numberCharacter: Number.warrior.rawValue, typeCharacter : Type.warrior.rawValue, nameCharacter: Name.warrior.rawValue, pvCharacter: 200, nameWeapon: Weapon.warrior.rawValue, weaponCharacterDmg: 40)
+        
     }
 }
 

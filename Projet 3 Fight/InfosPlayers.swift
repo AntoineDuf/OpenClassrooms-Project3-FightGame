@@ -7,25 +7,25 @@
 //
 import Foundation
 
-class Player1 {
-    let numberPlayer = 1
-    var namePlayer = "Player 1"
-    var teamPlayer = [Character]()
+internal class Player1 {
+    private let number = 1
+    internal var name = "Player 1"
+    internal var team = [Character]()
     private func askName() {
         print("What is the name of the first player?")
-        if let askName = readLine(){
-            namePlayer = askName
+        if let askName = readLine() {
+            name = askName
         }
-        if namePlayer.contains(" ") {
+        if name.contains(" ") {
                 print("Space are forbidden!")
                 self.askName()
         }
-        else if namePlayer.isEmpty {
+        else if name.isEmpty {
                 print("You must enter a name!")
                 self.askName()
         }
         else {
-            print("Hello \(self.namePlayer)!")
+            print("Hello \(self.name)!")
         }
     }
     init() {
@@ -33,25 +33,25 @@ class Player1 {
     }
 }
 
-class Player2 {
-    let numberPlayer = 2
-    var namePlayer = "Player 2"
-    var teamPlayer = [Character]()
+internal class Player2 {
+    private let number = 2
+    internal var name = "Player 2"
+    internal var team = [Character]()
     private func askName() {
         print("What is the name of the second player?")
         if let askName = readLine(){
-            namePlayer = askName
+            name = askName
         }
-        if namePlayer.contains(" ") {
+        if name.contains(" ") {
             print("Space are forbidden!")
             self.askName()
         }
-        else if namePlayer.isEmpty {
+        else if name.isEmpty {
             print("You must enter a name!")
             self.askName()
         }
         else {
-            print("Hello \(self.namePlayer)!")
+            print("Hello \(self.name)!")
         }
     }
     init() {

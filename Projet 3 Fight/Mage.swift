@@ -9,8 +9,8 @@
 import Foundation
 
 //Creation de l'objet Mage
-class Mage: Character {
-    init(){
-        super.init (numberCharacter: Number.mage.rawValue, typeCharacter : Type.mage.rawValue, nameCharacter: Name.mage.rawValue, pvCharacter: 120, nameWeapon: Weapon.mage.rawValue, weaponCharacterDmg: 60)
+internal class Mage: Character {
+    init() {
+        super.init(numberCharacter: Number.mage.rawValue, typeCharacter : Type.mage.rawValue, nameCharacter: Name.mage.rawValue, pvCharacter: 120, nameWeapon: Weapon.mage.rawValue, weaponCharacterDmg: 60)
     }
 }

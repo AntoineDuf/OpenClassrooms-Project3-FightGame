@@ -9,10 +9,9 @@
 import Foundation
 
 //Creation de l'objet Warrior
-class Warrior: Character {
-    init(){
-        super.init (numberCharacter: Number.warrior.rawValue, typeCharacter : Type.warrior.rawValue, nameCharacter: Name.warrior.rawValue, pvCharacter: 200, nameWeapon: Weapon.warrior.rawValue, weaponCharacterDmg: 40)
-        
+internal class Warrior: Character {
+    init() {
+        super.init(numberCharacter: Number.warrior.rawValue, typeCharacter : Type.warrior.rawValue, nameCharacter: Name.warrior.rawValue, pvCharacter: 200, nameWeapon: Weapon.warrior.rawValue, weaponCharacterDmg: 40)
     }
 }
 

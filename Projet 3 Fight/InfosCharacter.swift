@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Number: Int{
+internal enum Number: Int {
     case warrior = 1
     case paladin = 2
     case mage = 3
@@ -17,7 +17,7 @@ enum Number: Int{
     case thief = 6
 }
 
-enum Name: String {
+internal enum Name: String {
     case warrior = "Akin"
     case paladin = "Jacob"
     case mage = "Aldat"
@@ -26,7 +26,7 @@ enum Name: String {
     case thief = "Jaskier"
 }
 
-enum Type: String {
+internal enum Type: String {
     case warrior = "warrior"
     case paladin = "paladin"
     case mage = "mage"
@@ -35,7 +35,7 @@ enum Type: String {
     case thief = "thief"
 }
 
-enum Weapon: String {
+internal enum Weapon: String {
     case warrior = "a sword"
     case paladin = "a hammer"
     case mage = "some gloves"

@@ -8,8 +8,6 @@
 
 import Foundation
 
-let stringOptional: String?
-
 //Presentation du jeu et demande du nom du 1er joueur.
 print("Welcome you are in the Fight game!!!"
     + "\nIt is a RPG game for 2 players.")
@@ -20,12 +18,12 @@ Player2()
 print("Now it's time to chose your character."
     + "\nBe carefull a character can be pick one time only")
 
-Warrior().presentationCharacter()
-Paladin().presentationCharacter()
-Mage().presentationCharacter()
-Wizard().presentationCharacter()
-Priest().presentationCharacter()
-Thief().presentationCharacter()
+Warrior().presentation()
+Paladin().presentation()
+Mage().presentation()
+Wizard().presentation()
+Priest().presentation()
+Thief().presentation()
 
 
 

@@ -12,8 +12,8 @@ import Foundation
 print("Welcome you are in the Fight game!!!"
     + "\nIt is a RPG game for 2 players.")
 
-Player1()
-Player2()
+let player1 = Player(number: 1)
+let player2 = Player(number: 2)
 
 print("Now it's time to chose your character."
     + "\nBe carefull a character can be pick one time only")
@@ -25,6 +25,9 @@ Wizard().presentation()
 Priest().presentation()
 Thief().presentation()
 
+print("Now it's time to choose your team.")
+
+Game(player1: player1, player2: player2).createPlayerTeam()
 
 
 

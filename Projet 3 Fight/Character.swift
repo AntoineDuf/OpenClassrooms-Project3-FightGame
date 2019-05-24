@@ -8,18 +8,15 @@
 
 import Foundation
 
-var dictCharacter = ["1": Warrior.self, "2": Paladin.self, "3": Mage.self, "4": Wizard.self, "5": Priest.self, "6": Thief.self]
-
-
 //Creation de la classe personnage
-internal class Character {
+class Character {
     private var number: Int
-    internal var type: String
-    internal var name: String
-    internal var pv: Int
+    var type: String
+    var name: String
+    var pv: Int
     private var weapon : String
-    internal var weaponDmg: Int
-    internal func presentation() {
+    var weaponDmg: Int
+    func presentation() {
         print ("\(number). \(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
     }
     init(numberCharacter: Int, typeCharacter: String, nameCharacter: String, pvCharacter: Int, nameWeapon: String, weaponCharacterDmg: Int) {

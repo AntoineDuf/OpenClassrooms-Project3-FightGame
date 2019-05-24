@@ -9,7 +9,7 @@
 import Foundation
 
 //Creation de l'objet Paladin
-internal class Paladin: Character {
+class Paladin: Character {
     init() {
         super.init(numberCharacter: Number.paladin.rawValue, typeCharacter : Type.paladin.rawValue, nameCharacter: Name.paladin.rawValue, pvCharacter: 200, nameWeapon: Weapon.paladin.rawValue, weaponCharacterDmg: 40)
     }

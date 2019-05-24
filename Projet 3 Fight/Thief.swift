@@ -9,7 +9,7 @@
 import Foundation
 
 //Creation de l'objet Thief
-internal class Thief: Character {
+class Thief: Character {
     init() {
         super.init(numberCharacter: Number.thief.rawValue, typeCharacter : Type.thief.rawValue, nameCharacter: Name.thief.rawValue, pvCharacter: 140, nameWeapon: Weapon.thief.rawValue, weaponCharacterDmg: 50)
     }

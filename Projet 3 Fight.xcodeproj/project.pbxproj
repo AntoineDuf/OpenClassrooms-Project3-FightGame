@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B4D32D42288709800D0EB3C /* InfosPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D32D32288709800D0EB3C /* InfosPlayers.swift */; };
 		8BA854BB228C7C8700153B57 /* InfosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BA228C7C8700153B57 /* InfosCharacter.swift */; };
-		8BCC59ED22836011007948F2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59EC22836011007948F2 /* main.swift */; };
+		8BA854BD229149FE00153B57 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BC229149FE00153B57 /* Player.swift */; };
+		8BA854BF2296EC1300153B57 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BE2296EC1300153B57 /* Game.swift */; };
+		8BA854C12296EE5D00153B57 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854C02296EE5D00153B57 /* main.swift */; };
 		8BCC59F422836177007948F2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59F322836177007948F2 /* Character.swift */; };
 		8BCC59F6228362F5007948F2 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59F5228362F5007948F2 /* Warrior.swift */; };
 		8BCC59F822836318007948F2 /* Paladin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC59F722836318007948F2 /* Paladin.swift */; };
@@ -32,10 +33,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B4D32D32288709800D0EB3C /* InfosPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosPlayers.swift; sourceTree = "<group>"; };
 		8BA854BA228C7C8700153B57 /* InfosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosCharacter.swift; sourceTree = "<group>"; };
+		8BA854BC229149FE00153B57 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		8BA854BE2296EC1300153B57 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8BA854C02296EE5D00153B57 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8BCC59E922836011007948F2 /* Projet 3 Fight */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Projet 3 Fight"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BCC59EC22836011007948F2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8BCC59F322836177007948F2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8BCC59F5228362F5007948F2 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		8BCC59F722836318007948F2 /* Paladin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paladin.swift; sourceTree = "<group>"; };
@@ -75,10 +77,11 @@
 		8BCC59EB22836011007948F2 /* Projet 3 Fight */ = {
 			isa = PBXGroup;
 			children = (
-				8BCC59EC22836011007948F2 /* main.swift */,
-				8B4D32D32288709800D0EB3C /* InfosPlayers.swift */,
-				8BA854BA228C7C8700153B57 /* InfosCharacter.swift */,
+				8BA854C02296EE5D00153B57 /* main.swift */,
+				8BA854BC229149FE00153B57 /* Player.swift */,
+				8BA854BE2296EC1300153B57 /* Game.swift */,
 				8BCC59F322836177007948F2 /* Character.swift */,
+				8BA854BA228C7C8700153B57 /* InfosCharacter.swift */,
 				8BCC59F5228362F5007948F2 /* Warrior.swift */,
 				8BCC59F722836318007948F2 /* Paladin.swift */,
 				8BCC59FF22836386007948F2 /* Mage.swift */,
@@ -146,16 +149,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA854BD229149FE00153B57 /* Player.swift in Sources */,
 				8BA854BB228C7C8700153B57 /* InfosCharacter.swift in Sources */,
+				8BA854C12296EE5D00153B57 /* main.swift in Sources */,
 				8BCC59F6228362F5007948F2 /* Warrior.swift in Sources */,
 				8BCC59F822836318007948F2 /* Paladin.swift in Sources */,
 				8BCC59FC22836357007948F2 /* Thief.swift in Sources */,
 				8BCC59FE2283636D007948F2 /* Priest.swift in Sources */,
-				8BCC59ED22836011007948F2 /* main.swift in Sources */,
+				8BA854BF2296EC1300153B57 /* Game.swift in Sources */,
 				8BCC59FA22836341007948F2 /* Wizard.swift in Sources */,
 				8BCC59F422836177007948F2 /* Character.swift in Sources */,
 				8BCC5A0022836386007948F2 /* Mage.swift in Sources */,
-				8B4D32D42288709800D0EB3C /* InfosPlayers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

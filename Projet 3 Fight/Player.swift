@@ -39,16 +39,56 @@ class Player {
         print("\(self.name) it's your turn to choose. Tap the number attached to the character you choose.")
         if let choice = readLine(){
             switch choice {
-            case "1": self.team.append(Warrior())
-            case "2": self.team.append(Paladin())
-            case "3": self.team.append(Mage())
-            case "4": self.team.append(Wizard())
-            case "5": self.team.append(Priest())
-            case "6": self.team.append(Thief())
+            case "1":
+                if verifyAvailability(numberAvailability: 1) {
+                    self.team.append(Warrior())
+                }
+            case "2":
+                if verifyAvailability(numberAvailability: 2) {
+                    self.team.append(Paladin())
+                }
+            case "3":
+                if verifyAvailability(numberAvailability: 3) {
+                    self.team.append(Mage())
+                }
+            case "4":
+                if verifyAvailability(numberAvailability: 4) {
+                    self.team.append(Wizard())
+                }
+            case "5":
+                if verifyAvailability(numberAvailability: 5) {
+                    self.team.append(Priest())
+                }
+            case "6":
+                if verifyAvailability(numberAvailability: 6) {
+                    self.team.append(Thief())
+                }
             default:
-                print("You must enter a name between 1 to 6.")
-            }
+                print("You must enter a number between 1 to 6.")
+                playerTeam()            }
         }
+    }
+    private func removeCharacter(forKey: Int) {
+        dictCharacter.removeValue(forKey: forKey)
+    }
+    
+    private func verifyAvailability(numberAvailability: Int) -> Bool {
+        if dictCharacter[numberAvailability] == nil {
+            print ("This character have been already choose.")
+            playerTeam()
+            return false
+        } else {
+            print ("This character have been add to your team.")
+            removeCharacter(forKey: numberAvailability)
+            return true
+        }
+    }
+    func showTeam() {
+        print("\(self.name) you have in your team:")            
+        print("\n\(self.team[0].presentationWhithoutNumb())"
+            +   "\n\(self.team[1].presentationWhithoutNumb())"
+            +   "\n\(self.team[2].presentationWhithoutNumb())"
+        )
     }
 }
 

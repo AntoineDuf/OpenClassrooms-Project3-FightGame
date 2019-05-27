@@ -45,4 +45,3 @@ enum Weapon: String {
 }
 
 var dictCharacter = [1: Warrior(),2: Paladin(),3: Mage(),4: Wizard(),5: Priest(),6: Thief()]
-

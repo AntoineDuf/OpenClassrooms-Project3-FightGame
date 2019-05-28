@@ -16,7 +16,9 @@ class Game {
         self.player2 = player2
         presentCharacter()
         createPlayerTeam()
-        seeTeamPlayer()
+        createEnemy()
+        turnByTurn()
+        checkVictory()
     }
     private func createPlayerTeam() {
         print("Now it's time to choose your team.")
@@ -24,6 +26,10 @@ class Game {
             player1.playerTeam()
             player2.playerTeam()
         }
+    }
+    private func createEnemy() {
+        player1.enemy()
+        player2.enemy()
     }
     private func presentCharacter() {
         print("Now it's time to choose your character."
@@ -36,8 +42,20 @@ class Game {
         Priest().presentation()
         Thief().presentation()
     }
-    private func seeTeamPlayer() {
-        player1.showTeam()
-        player2.showTeam()
+    private func turnByTurn(){
+        while player1.team.count > 0 && player2.team.count > 0 {
+            player1.fight()
+            if player2.team.count > 0 && player1.team.count > 0 {
+                player2.fight()
+            }
+        }
+    }
+    private func checkVictory() {
+        if player1.team.isEmpty {
+            print("\(player2.name) win!!!")
+        }
+        else if player2.team.isEmpty {
+            print("\(player1.name) win!!!")
+        }
     }
 }

@@ -21,7 +21,7 @@ class Game {
         checkVictory()
     }
     private func createPlayerTeam() {
-        print("Now it's time to choose your team.")
+        print("Il est maintenant temps de choisir vos équipes.")
         while player1.team.count < 3 && player2.team.count < 3{
             player1.playerTeam()
             player2.playerTeam()
@@ -32,8 +32,8 @@ class Game {
         player2.enemy()
     }
     private func presentCharacter() {
-        print("Now it's time to choose your character."
-            + "\nBe carefull a character can be pick one time only")
+        print("Choississez vos personnages."
+            + "\nAttention un perssonnage ne peux etre choisis q'une seul fois.")
         
         Warrior().presentation()
         Paladin().presentation()
@@ -52,10 +52,10 @@ class Game {
     }
     private func checkVictory() {
         if player1.team.isEmpty {
-            print("\(player2.name) win!!!")
+            print("\(player2.name) gagne!!!")
         }
         else if player2.team.isEmpty {
-            print("\(player1.name) win!!!")
+            print("\(player1.name) gagne!!!")
         }
     }
 }

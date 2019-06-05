@@ -16,12 +16,15 @@ class Character {
     var pv: Int
     private var weapon : String
     var weaponDmg: Int
+    
     func presentation() {
-        print ("\(number). \(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
+        print("\(number). \(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
     }
+    
     func presentationWhithoutNumb() {
-        print ("\(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
+        print("\(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
     }
+    
     init(numberCharacter: Int, typeCharacter: String, nameCharacter: String, pvCharacter: Int, nameWeapon: String, weaponCharacterDmg: Int) {
         self.number = numberCharacter
         self.type = typeCharacter

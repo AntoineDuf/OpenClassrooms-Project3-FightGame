@@ -9,8 +9,8 @@
 import Foundation
 
 //Presentation du jeu et demande du nom du 1er joueur.
-print("Welcome you are in the Fight game!!!"
-    + "\nIt is a RPG game for 2 players.")
+print("Bienvenue dans le jeu Fight!!"
+    + "\nC'est un jeu de role tour par tour pour 2 joueurs.")
 
 let player1 = Player(number: 1)
 let player2 = Player(number: 2)

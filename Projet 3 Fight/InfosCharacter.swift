@@ -27,21 +27,21 @@ enum Name: String {
 }
 
 enum Type: String {
-    case warrior = "warrior"
+    case warrior = "guerrier"
     case paladin = "paladin"
     case mage = "mage"
-    case wizard = "wizard"
-    case priest = "priest"
-    case thief = "thief"
+    case wizard = "sorcier"
+    case priest = "prêtre"
+    case thief = "voleur"
 }
 
 enum Weapon: String {
-    case warrior = "a sword"
-    case paladin = "a hammer"
-    case mage = "some gloves"
-    case wizard = "a wand"
-    case priest = "a flemberge"
-    case thief = "some knives"
+    case warrior = "une épée"
+    case paladin = "un marteau"
+    case mage = "un gant magique"
+    case wizard = "une baguette magique"
+    case priest = "une flemberge"
+    case thief = "un couteau"
 }
 
 var dictCharacter = [1: Warrior(),2: Paladin(),3: Mage(),4: Wizard(),5: Priest(),6: Thief()]

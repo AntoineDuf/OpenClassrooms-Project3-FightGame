@@ -74,11 +74,11 @@
 			isa = PBXGroup;
 			children = (
 				8B39799C22A6D9D10045786E /* ExtraWeapon.swift */,
-				8B39799F22A6DA460045786E /* NurseWand.swift */,
 				8B3979A122A6DAC10045786E /* WoodStick.swift */,
 				8B3979A322A6DB840045786E /* FireWand.swift */,
 				8B3979A522A6DD3F0045786E /* AmericanFist.swift */,
 				8B3979A722A6DDD20045786E /* Spoon.swift */,
+				8B39799F22A6DA460045786E /* NurseWand.swift */,
 			);
 			path = ExtraWeapon;
 			sourceTree = "<group>";

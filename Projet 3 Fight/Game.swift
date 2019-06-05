@@ -20,20 +20,10 @@ class Game {
         turnByTurn()
         checkVictory()
     }
-    private func createPlayerTeam() {
-        print("Il est maintenant temps de choisir vos équipes.")
-        while player1.team.count < 3 && player2.team.count < 3{
-            player1.playerTeam()
-            player2.playerTeam()
-        }
-    }
-    private func createEnemy() {
-        player1.enemy()
-        player2.enemy()
-    }
+    
     private func presentCharacter() {
-        print("Choississez vos personnages."
-            + "\nAttention un perssonnage ne peux etre choisis q'une seul fois.")
+        print("Choisissez vos personnages."
+            + "\nAttention un personnage peut être choisi une seule fois.")
         
         Warrior().presentation()
         Paladin().presentation()
@@ -42,20 +32,35 @@ class Game {
         Priest().presentation()
         Thief().presentation()
     }
-    private func turnByTurn(){
-        while player1.team.count > 0 && player2.team.count > 0 {
+    
+    private func createPlayerTeam() {
+        print("Il est maintenant temps de choisir vos équipes.")
+        while player1.team.count < 3 && player2.team.count < 3{
+            player1.playerTeam()
+            player2.playerTeam()
+        }
+    }
+    
+    private func createEnemy() {
+        player1.enemy()
+        player2.enemy()
+    }
+    
+    private func turnByTurn() {
+        while !player1.checkTeamAlive() && !player2.checkTeamAlive() {
             player1.fight()
-            if player2.team.count > 0 && player1.team.count > 0 {
+            if !player2.checkTeamAlive() && !player1.checkTeamAlive() {
                 player2.fight()
             }
         }
     }
+    
     private func checkVictory() {
-        if player1.team.isEmpty {
-            print("\(player2.name) gagne!!!")
+        if player1.checkTeamAlive() {
+            print("\(player2.name) gagne !!!")
         }
-        else if player2.team.isEmpty {
-            print("\(player1.name) gagne!!!")
+        else if player2.checkTeamAlive() {
+            print("\(player1.name) gagne !!!")
         }
     }
 }

@@ -18,11 +18,11 @@ class Character {
     var weaponDmg: Int
     
     func presentation() {
-        print("\(number). \(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
+        print("\(number). \(name) le \(type) avec \(pv) points de vie et armé avec \(weapon) qui inflige \(weaponDmg) points de dommage.")
     }
     
     func presentationWhithoutNumb() {
-        print("\(name) the \(type) with \(pv) points of life and armed with \(weapon) that deals \(weaponDmg) damage points.")
+        print("\(name) le \(type) avec \(pv) points de vie et armé avec \(weapon) qui inflige \(weaponDmg) points de dommage.")
     }
     
     init(numberCharacter: Int, typeCharacter: String, nameCharacter: String, pvCharacter: Int, nameWeapon: String, weaponCharacterDmg: Int) {

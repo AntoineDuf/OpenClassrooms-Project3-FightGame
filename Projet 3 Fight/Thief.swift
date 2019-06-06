@@ -11,6 +11,6 @@ import Foundation
 //Creation de l'objet Thief
 class Thief: Character {
     init() {
-        super.init(numberCharacter: Number.thief.rawValue, typeCharacter : Type.thief.rawValue, nameCharacter: Name.thief.rawValue, pvCharacter: 140, nameWeapon: Weapon.thief.rawValue, weaponCharacterDmg: 50)
+        super.init(type: Type.thief.rawValue, name: Name.thief.rawValue, pv: 140, weapon: Weapon.thief.rawValue, weaponDmg: 50)
     }
 }

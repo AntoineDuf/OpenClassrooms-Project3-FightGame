@@ -11,6 +11,6 @@ import Foundation
 //Creation de l'objet Wizard
 class Wizard: Character {
     init() {
-        super.init(numberCharacter: Number.wizard.rawValue, typeCharacter : Type.wizard.rawValue, nameCharacter: Name.wizard.rawValue, pvCharacter: 120, nameWeapon: Weapon.wizard.rawValue, weaponCharacterDmg: 60)
+        super.init(type: Type.wizard.rawValue, name: Name.wizard.rawValue, pv: 120, weapon: Weapon.wizard.rawValue, weaponDmg: 60)
     }
 }

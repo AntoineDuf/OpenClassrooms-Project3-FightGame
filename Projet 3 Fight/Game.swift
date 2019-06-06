@@ -14,6 +14,9 @@ class Game {
     init(player1: Player, player2: Player) {
         self.player1 = player1
         self.player2 = player2
+        player1.setName()
+        player2.setName()
+        player2.verifySameName()
         presentCharacter()
         createPlayerTeam()
         createEnemy()
@@ -25,12 +28,12 @@ class Game {
         print("Choisissez vos personnages."
             + "\nAttention un personnage peut être choisi une seule fois.")
         
-        Warrior().presentation()
-        Paladin().presentation()
-        Mage().presentation()
-        Wizard().presentation()
-        Priest().presentation()
-        Thief().presentation()
+        Warrior().presentation(number: 1)
+        Paladin().presentation(number: 2)
+        Mage().presentation(number: 3)
+        Wizard().presentation(number: 4)
+        Priest().presentation(number: 5)
+        Thief().presentation(number: 6)
     }
     
     private func createPlayerTeam() {

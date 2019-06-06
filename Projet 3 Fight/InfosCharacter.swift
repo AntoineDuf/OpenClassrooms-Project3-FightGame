@@ -8,15 +8,6 @@
 
 import Foundation
 
-enum Number: Int {
-    case warrior = 1
-    case paladin = 2
-    case mage = 3
-    case wizard = 4
-    case priest = 5
-    case thief = 6
-}
-
 enum Name: String {
     case warrior = "Akin"
     case paladin = "Jacob"
@@ -36,12 +27,12 @@ enum Type: String {
 }
 
 enum Weapon: String {
-    case warrior = "une épée"
-    case paladin = "un marteau"
-    case mage = "un gant magique"
-    case wizard = "une baguette magique"
-    case priest = "une flemberge"
-    case thief = "un couteau"
+    case warrior = "d'une épée"
+    case paladin = "d'un marteau"
+    case mage = "d'un gant magique"
+    case wizard = "d'une baguette magique"
+    case priest = "d'une flemberge"
+    case thief = "d'un couteau"
 }
 
 var dictCharacter = [1: Warrior(),2: Paladin(),3: Mage(),4: Wizard(),5: Priest(),6: Thief()]

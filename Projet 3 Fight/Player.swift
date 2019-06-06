@@ -19,58 +19,62 @@ class Player {
     
     init(number: Int) {
         self.number = number
-        self.setName()
     }
     
-    private func setName() {
+    func setName() {
         print("Quel est le nom du joueur \(number) ?")
         if let name = readLine() {
             self.name = name
         }
         if name.contains(" ") {
             print("Les espaces sont interdits !")
-            self.setName()
+            setName()
         }
         else if name.isEmpty {
             print("Vous devez rentrer un nom !")
-            self.setName()
+            setName()
+            
         }
-            //        else if player2.name.contains(player1.name) {
-            //            print("Vous ne pouvez pas avoir le même nom que votre ennemi.")
-            //            self.setName()
-            //        }
         else {
-            print("Bonjour \(self.name) !")
+            print("Bonjour \(name) !")
+        }
+    }
+    
+    func verifySameName() {
+        if player1.name == player2.name {
+            print("Joueur 2 vous ne pouvez pas choisir le même nom que \(player1.name)")
+            player2.setName()
+            verifySameName()
         }
     }
     
     func playerTeam() {
-        print("\(self.name) c'est à votre tour de choisir. Tapez le nombre attaché au personnage pour le choisir.")
+        print("\(name) c'est à votre tour de choisir. Tapez le nombre attaché au personnage pour le choisir.")
         if let choice = readLine(){
             switch choice {
             case "1":
                 if verifyAvailability(numberAvailability: 1) {
-                    self.team.append(Warrior())
+                    team.append(Warrior())
                 }
             case "2":
                 if verifyAvailability(numberAvailability: 2) {
-                    self.team.append(Paladin())
+                    team.append(Paladin())
                 }
             case "3":
                 if verifyAvailability(numberAvailability: 3) {
-                    self.team.append(Mage())
+                    team.append(Mage())
                 }
             case "4":
                 if verifyAvailability(numberAvailability: 4) {
-                    self.team.append(Wizard())
+                    team.append(Wizard())
                 }
             case "5":
                 if verifyAvailability(numberAvailability: 5) {
-                    self.team.append(Priest())
+                    team.append(Priest())
                 }
             case "6":
                 if verifyAvailability(numberAvailability: 6) {
-                    self.team.append(Thief())
+                    team.append(Thief())
                 }
             default:
                 print("Vous devez renter un nombre entre 1 et 6.")
@@ -79,7 +83,7 @@ class Player {
     }
     
     func enemy() {
-        if self.number == 1 {
+        if number == 1 {
             enemyPlayer = player2
         } else {
             enemyPlayer = player1
@@ -103,17 +107,16 @@ class Player {
     }
     
     private func showTeam() {
-        print("\(self.name) a dans son équipe:")
+        print("\(name) a dans son équipe:")
         var numb = 1
-        for i in 0..<self.team.count {
-            print("\(numb).")
-            print(" \(self.team[i].presentationWhithoutNumb())")
+        for i in 0..<team.count {
+            team[i].presentation(number: numb)
             numb += 1
         }
     }
     
     private func showEnemyTeam() {
-        if self.number == 1 {
+        if number == 1 {
             player2.showTeam()
         } else {
             player1.showTeam()
@@ -121,33 +124,15 @@ class Player {
     }
     
     private func chooseFighter() {
-        print("\(self.name) choisissez votre combattant en tapant son numéro.")
+        print("\(name) choisissez votre combattant en tapant son numéro.")
         if let choice = readLine() {
             switch choice {
             case "1":
-                if team[0].pv <= 0 {
-                    print("Vous ne pouvez pas choisir un combattant KO.")
-                    chooseFighter()
-                } else {
-                    fighter.insert(team[0], at: 0)
-                    print("Vous avez choisi d'attaquer avec \(fighter[0].name) ")
-                }
+                fighterAvailability(numberFighter: 0)
             case "2":
-                if team[1].pv <= 0 {
-                    print("Vous ne pouvez pas choisir un combattant KO.")
-                    chooseFighter()
-                } else {
-                    fighter.insert(team[1], at: 0)
-                    print("Vous avez choisi d'attaquer avec \(fighter[0].name) ")
-                }
+                fighterAvailability(numberFighter: 1)
             case "3":
-                if team[2].pv <= 0 {
-                    print("Vous ne pouvez pas choisir un combattant KO.")
-                    chooseFighter()
-                } else {
-                    fighter.insert(team[2], at: 0)
-                    print("Vous avez choisi d'attaquer avec \(fighter[0].name) ")
-                }
+                fighterAvailability(numberFighter: 2)
             default:
                 print("Vous devez renter un nombre entre 1 et 3.")
                 chooseFighter()
@@ -155,34 +140,26 @@ class Player {
         }
     }
     
+    private func fighterAvailability(numberFighter: Int) {
+        if team[numberFighter].pv <= 0 {
+            print("Vous ne pouvez pas choisir un combattant KO.")
+            chooseFighter()
+        } else {
+            fighter.append(team[numberFighter])
+            print("Vous avez choisi d'attaquer avec \(fighter.first!.name) ")
+        }
+    }
+    
     private func chooseTarget() {
-        print("\(self.name) Choisissez une cible en tapant son numéro.")
+        print("\(name) Choisissez une cible en tapant son numéro.")
         if let choice = readLine() {
             switch choice {
             case "1":
-                if enemyPlayer.team[0].pv <= 0 {
-                    print("Vous ne pouvez pas attaquer un combattant KO.")
-                    chooseTarget()
-                } else {
-                    target.insert(enemyPlayer.team[0], at: 0)
-                    print("Vous choisissez d'attaquer \(target[0].name) ")
-                }
+                targetAvailability(numberTarget: 0)
             case "2":
-                if enemyPlayer.team[1].pv <= 0 {
-                    print("Vous ne pouvez pas attaquer un combattant KO.")
-                    chooseTarget()
-                } else {
-                    target.insert(enemyPlayer.team[1], at: 0)
-                    print("Vous choisissez d'attaquer \(target[0].name) ")
-                }
+                targetAvailability(numberTarget: 1)
             case "3":
-                if enemyPlayer.team[2].pv <= 0 {
-                    print("Vous ne pouvez pas attaquer un combattant KO.")
-                    chooseTarget()
-                } else {
-                    target.insert(enemyPlayer.team[2], at: 0)
-                    print("Vous choisissez d'attaquer \(target[0].name) ")
-                }
+                targetAvailability(numberTarget: 2)
             default:
                 print("Vous devez renter un nombre entre 1 et 3.")
                 chooseTarget()
@@ -190,8 +167,18 @@ class Player {
         }
     }
     
+    private func targetAvailability(numberTarget: Int) {
+        if enemyPlayer.team[numberTarget].pv <= 0 {
+            print("Vous ne pouvez pas attaquer un combattant KO.")
+            chooseTarget()
+        } else {
+            target.append(enemyPlayer.team[numberTarget])
+            print("Vous choisissez d'attaquer \(fighter.first!.name) ")
+        }
+    }
+    
     private func attackOrHeal() {
-        if fighter[0].number == 4 || fighter[0].number == 3 {
+        if fighter.first?.type == Type.mage.rawValue || fighter.first?.type == Type.wizard.rawValue {
             print("Tapez 1 pour attaquer quelqu'un de l'équipe adverse ou 2 pour soigner un de vos personnages.")
             if let choice = readLine() {
                 switch choice {
@@ -215,46 +202,32 @@ class Player {
     
     private func attackNormalOrWithBonusWeapon() {
         let bonusWeapon = [WoodStick(), FireWand(), AmericanFist(), Spoon(), NurseWand()]
-        let numb:Int = Int(arc4random_uniform(UInt32(20)))
+        let numb = Int(arc4random_uniform(UInt32(20)))
         if numb <= 3 {
-            target[0].pv = target[0].pv - bonusWeapon[numb].damages
-            print("\(self.name) attaque \(target[0].name) avec \(fighter[0].name) armé \(bonusWeapon[numb].name) et inflige \(bonusWeapon[numb].damages) points de dommage.")        }
-        else if numb == 4 {
-            target[0].pv = target[0].pv - bonusWeapon[numb].damages
-            print("\(self.name) attaque \(target[0].name) avec \(fighter[0].name) armé de \(bonusWeapon[numb].name) et lui donne 35 points de vie.")        }
-        else {
-            target[0].pv = target[0].pv - fighter[0].weaponDmg
-            print("\(self.name) attaque \(target[0].name) avec \(fighter[0].name) et inflige \(fighter[0].weaponDmg) points de dommage.")
+            retrieveLivePoints(damagePoints: bonusWeapon[numb].damages, weaponName: bonusWeapon[numb].name)
         }
+        else if numb == 4 {
+            target.first!.pv -= bonusWeapon[numb].damages
+            print("\(name) attaque \(target.first!.name) avec \(fighter.first!.name) armé de \(bonusWeapon[numb].name) et lui donne 35 points de vie.")        }
+        else {
+            retrieveLivePoints(damagePoints: fighter.first!.weaponDmg, weaponName: fighter.first!.weapon)
+        }
+    }
+    
+    private func retrieveLivePoints(damagePoints: Int, weaponName: String) {
+        target.first!.pv -= damagePoints
+        print("\(name) attaque \(target.first!.name) avec \(fighter.first!.name) armé \(weaponName) et inflige \(damagePoints) points de dommage.")
     }
     
     private func healTeamMate() {
         if let choice = readLine() {
             switch choice {
             case "1":
-                if team[0].pv > 0 {
-                    team[0].pv = team[0].pv + 40
-                    print("Vous avez soigné \(team[0].name) de 40 points de vie.")
-                } else {
-                    print("Vous ne pouvez pas soigner un combattant KO.")
-                    attackOrHeal()
-                }
+                availabilityToHeal(numberTeamMate: 0)
             case "2":
-                if team[1].pv > 0 {
-                    team[1].pv = team[1].pv + 40
-                    print("Vous avez soigné \(team[1].name) de 40 points de vie.")
-                } else {
-                    print("Vous ne pouvez pas soigner un combattant KO.")
-                    attackOrHeal()
-                }
+                availabilityToHeal(numberTeamMate: 1)
             case "3":
-                if team[2].pv > 0 {
-                    team[2].pv = team[2].pv + 40
-                    print("Vous avez soigné \(team[2].name) de 40 points de vie.")
-                } else {
-                    print("Vous ne pouvez pas soigner un combattant KO.")
-                    attackOrHeal()
-                }
+                availabilityToHeal(numberTeamMate: 2)
             default:
                 print("Vous devez rentrer un nombre entre 1 et 3.")
                 attackOrHeal()
@@ -262,31 +235,36 @@ class Player {
         }
     }
     
-    func checkTeamAlive() -> Bool {
-        if team[0].pv <= 0 && team[1].pv <= 0 && team[2].pv <= 0{
-            return true
-        } else {
-            return false
+    private func availabilityToHeal(numberTeamMate: Int) {
+        if team[numberTeamMate].pv > 0 {
+            team[numberTeamMate].pv += 40
+            print("Vous avez soigné \(team[numberTeamMate].name) de 40 points de vie.")
         }
+        else {
+            print("Vous ne pouvez pas soigner un combattant KO.")
+            attackOrHeal()
+        }
+    }
+    
+    func checkTeamAlive() -> Bool {
+        return team.first!.pv <= 0 && team[1].pv <= 0 && team[2].pv <= 0
     }
     
     private func checkPv() {
-        if team[0].pv < 0 {
-            team[0].pv = 0
-        } else if team[1].pv < 0 {
-            team[1].pv = 0
-        } else if team[2].pv < 0 {
-            team[2].pv = 0
+        for i in 0..<2 {
+            if team[i].pv < 0 {
+                team[i].pv = 0
+            }
         }
-    }
+    } 
     
     func fight() {
-        print("\(self.name) c'est à votre tour de jouer.")
-        self.showTeam()
-        self.showEnemyTeam()
-        self.chooseFighter()
-        self.attackOrHeal()
-        self.checkPv()
+        print("\(name) c'est à votre tour de jouer.")
+        showTeam()
+        showEnemyTeam()
+        chooseFighter()
+        attackOrHeal()
+        checkPv()
         enemyPlayer.checkPv()
     }
 }

@@ -8,23 +8,28 @@
 
 import Foundation
 
-//Creation de la classe personnage
+/*
+ This class contains all characters caracteristics and a method for the presentation of each character.
+ */
+
 class Character {
     var type: String
     var name: String
     var pv: Int
     var weapon: String
     var weaponDmg: Int
+    let pvMax: Int
     
     func presentation(number: Int) {
-        print("\(number). \(name) le \(type) avec \(pv) points de vie et armé avec \(weapon) qui inflige \(weaponDmg) points de dommage.")
+        print("\(number). \(name) le \(type) avec \(pv) points de vie et est armé \(weapon) qui inflige \(weaponDmg) points de dommage.")
     }
     
-    init(type: String, name: String, pv: Int, weapon: String, weaponDmg: Int) {
+    init(type: String, name: String, pv: Int, weapon: String, weaponDmg: Int, pvMax: Int) {
         self.type = type
         self.name = name
         self.pv = pv
         self.weapon = weapon
         self.weaponDmg = weaponDmg
+        self.pvMax = pvMax
     }
 }

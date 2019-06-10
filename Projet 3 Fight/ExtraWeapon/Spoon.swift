@@ -8,8 +8,10 @@
 
 import Foundation
 
+//Creation of Spoon bonus weapon.
+
 class Spoon: ExtraWeapon{
     init(){
-        super.init(name:"d'une cuillère", damages: 10)
+        super.init(name:"d'une cuillère", damage: 10)
     }
 }

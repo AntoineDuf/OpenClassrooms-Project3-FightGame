@@ -8,8 +8,10 @@
 
 import Foundation
 
+//Creation of AmericanFist bonus weapon.
+
 class AmericanFist: ExtraWeapon{
     init(){
-        super.init(name:"de points américain", damages: 80)
+        super.init(name:"un point américain", damage: 80)
     }
 }

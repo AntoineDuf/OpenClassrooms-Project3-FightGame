@@ -8,9 +8,10 @@
 
 import Foundation
 
-//Creation de l'objet Priest
+//Creation of Priest object.
+
 class Priest: Character {
     init() {
-        super.init(type: Type.priest.rawValue, name: Name.priest.rawValue, pv: 140, weapon: Weapon.priest.rawValue, weaponDmg: 50)
+        super.init(type: Type.priest.rawValue, name: Name.priest.rawValue, pv: 140, weapon: Weapon.priest.rawValue, weaponDmg: 50, pvMax: 140)
     }
 }

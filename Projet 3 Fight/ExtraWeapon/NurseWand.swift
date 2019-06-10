@@ -8,8 +8,10 @@
 
 import Foundation
 
+//Creation of NurseWand bonus weapon.
+
 class NurseWand: ExtraWeapon{
     init(){
-        super.init(name:"d'une baguette de soin", damages: -35)
+        super.init(name:"d'une baguette de soin", damage: -30)
     }
 }

@@ -8,8 +8,10 @@
 
 import Foundation
 
+//Creation of FireWand bonus weapon.
+
 class FireWand: ExtraWeapon{
     init(){
-        super.init(name:"d'une baguette de feu", damages: 100)
+        super.init(name:"d'une baguette de feu", damage: 100)
     }
 }

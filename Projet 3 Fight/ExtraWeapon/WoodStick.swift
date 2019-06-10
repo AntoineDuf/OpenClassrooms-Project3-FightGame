@@ -8,8 +8,10 @@
 
 import Foundation
 
+//Creation of WoodStick bonus weapon.
+
 class WoodStick: ExtraWeapon{
     init(){
-        super.init(name:"d'un baton en bois", damages: 10)
+        super.init(name:"d'un baton en bois", damage: 10)
     }
 }

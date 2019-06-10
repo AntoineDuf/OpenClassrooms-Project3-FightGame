@@ -8,12 +8,16 @@
 
 import Foundation
 
+/*
+ This class contains the damage and name caracteristics for all the bonus weapon.
+ */
+
 class ExtraWeapon {
-    var damages: Int
+    var damage: Int
     var name: String
     
-    init(name: String, damages: Int){
+    init(name: String, damage: Int){
         self.name = name
-        self.damages = damages
+        self.damage = damage
     }
 }

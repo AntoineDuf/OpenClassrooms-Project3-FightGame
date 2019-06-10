@@ -8,9 +8,13 @@
 
 import Foundation
 
-//Creation de l'objet Mage
+//Creation of Mage object. And override mother method for having a different presention for this character.
+
 class Mage: Character {
+    override func presentation(number: Int) {
+        print("\(number). \(name) le \(type) avec \(pv) points de vie et est armé \(weapon) qui inflige \(weaponDmg) points de dommage. Il est aussi capable de lancer un sort de soin sur ses coéquipiers et ainsi de leur rendre 20 points de vie.")
+    }
     init() {
-        super.init(numberCharacter: Number.mage.rawValue, typeCharacter : Type.mage.rawValue, nameCharacter: Name.mage.rawValue, pvCharacter: 120, nameWeapon: Weapon.mage.rawValue, weaponCharacterDmg: 60)
+        super.init(type: Type.mage.rawValue, name: Name.mage.rawValue, pv: 120, weapon: Weapon.mage.rawValue, weaponDmg: 60, pvMax: 120)
     }
 }

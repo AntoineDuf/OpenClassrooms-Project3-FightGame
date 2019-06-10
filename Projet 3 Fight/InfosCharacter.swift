@@ -8,14 +8,10 @@
 
 import Foundation
 
-enum Number: Int {
-    case warrior = 1
-    case paladin = 2
-    case mage = 3
-    case wizard = 4
-    case priest = 5
-    case thief = 6
-}
+/*
+ This file contains 3 enumeration of all the informations need for each character.
+ It also contains a dictionnary of all the character that help the playerTeam method in Player for the creation  of the two player team.
+ */
 
 enum Name: String {
     case warrior = "Akin"
@@ -27,21 +23,21 @@ enum Name: String {
 }
 
 enum Type: String {
-    case warrior = "warrior"
+    case warrior = "guerrier"
     case paladin = "paladin"
     case mage = "mage"
-    case wizard = "wizard"
-    case priest = "priest"
-    case thief = "thief"
+    case wizard = "sorcier"
+    case priest = "prêtre"
+    case thief = "voleur"
 }
 
 enum Weapon: String {
-    case warrior = "a sword"
-    case paladin = "a hammer"
-    case mage = "some gloves"
-    case wizard = "a wand"
-    case priest = "a flemberge"
-    case thief = "some knives"
+    case warrior = "d'une épée"
+    case paladin = "d'un marteau"
+    case mage = "d'un gant magique"
+    case wizard = "d'une baguette magique"
+    case priest = "d'une flemberge"
+    case thief = "d'un couteau"
 }
 
 var dictCharacter = [1: Warrior(),2: Paladin(),3: Mage(),4: Wizard(),5: Priest(),6: Thief()]

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B39799D22A6D9D10045786E /* ExtraWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B39799C22A6D9D10045786E /* ExtraWeapon.swift */; };
+		8B3979A022A6DA460045786E /* NurseWand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B39799F22A6DA460045786E /* NurseWand.swift */; };
+		8B3979A222A6DAC10045786E /* WoodStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3979A122A6DAC10045786E /* WoodStick.swift */; };
+		8B3979A422A6DB840045786E /* FireWand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3979A322A6DB840045786E /* FireWand.swift */; };
+		8B3979A622A6DD3F0045786E /* AmericanFist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3979A522A6DD3F0045786E /* AmericanFist.swift */; };
+		8B3979A822A6DDD20045786E /* Spoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3979A722A6DDD20045786E /* Spoon.swift */; };
 		8BA854BB228C7C8700153B57 /* InfosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BA228C7C8700153B57 /* InfosCharacter.swift */; };
 		8BA854BD229149FE00153B57 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BC229149FE00153B57 /* Player.swift */; };
 		8BA854BF2296EC1300153B57 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA854BE2296EC1300153B57 /* Game.swift */; };
@@ -33,6 +39,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B39799C22A6D9D10045786E /* ExtraWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraWeapon.swift; sourceTree = "<group>"; };
+		8B39799F22A6DA460045786E /* NurseWand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseWand.swift; sourceTree = "<group>"; };
+		8B3979A122A6DAC10045786E /* WoodStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodStick.swift; sourceTree = "<group>"; };
+		8B3979A322A6DB840045786E /* FireWand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWand.swift; sourceTree = "<group>"; };
+		8B3979A522A6DD3F0045786E /* AmericanFist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmericanFist.swift; sourceTree = "<group>"; };
+		8B3979A722A6DDD20045786E /* Spoon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spoon.swift; sourceTree = "<group>"; };
 		8BA854BA228C7C8700153B57 /* InfosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosCharacter.swift; sourceTree = "<group>"; };
 		8BA854BC229149FE00153B57 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8BA854BE2296EC1300153B57 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -58,6 +70,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B39799E22A6D9F10045786E /* ExtraWeapon */ = {
+			isa = PBXGroup;
+			children = (
+				8B39799C22A6D9D10045786E /* ExtraWeapon.swift */,
+				8B3979A122A6DAC10045786E /* WoodStick.swift */,
+				8B3979A322A6DB840045786E /* FireWand.swift */,
+				8B3979A522A6DD3F0045786E /* AmericanFist.swift */,
+				8B3979A722A6DDD20045786E /* Spoon.swift */,
+				8B39799F22A6DA460045786E /* NurseWand.swift */,
+			);
+			path = ExtraWeapon;
+			sourceTree = "<group>";
+		};
 		8BCC59E022836011007948F2 = {
 			isa = PBXGroup;
 			children = (
@@ -80,14 +105,15 @@
 				8BA854C02296EE5D00153B57 /* main.swift */,
 				8BA854BC229149FE00153B57 /* Player.swift */,
 				8BA854BE2296EC1300153B57 /* Game.swift */,
-				8BCC59F322836177007948F2 /* Character.swift */,
 				8BA854BA228C7C8700153B57 /* InfosCharacter.swift */,
+				8BCC59F322836177007948F2 /* Character.swift */,
 				8BCC59F5228362F5007948F2 /* Warrior.swift */,
 				8BCC59F722836318007948F2 /* Paladin.swift */,
 				8BCC59FF22836386007948F2 /* Mage.swift */,
 				8BCC59F922836341007948F2 /* Wizard.swift */,
 				8BCC59FD2283636D007948F2 /* Priest.swift */,
 				8BCC59FB22836357007948F2 /* Thief.swift */,
+				8B39799E22A6D9F10045786E /* ExtraWeapon */,
 			);
 			path = "Projet 3 Fight";
 			sourceTree = "<group>";
@@ -151,14 +177,20 @@
 			files = (
 				8BA854BD229149FE00153B57 /* Player.swift in Sources */,
 				8BA854BB228C7C8700153B57 /* InfosCharacter.swift in Sources */,
+				8B3979A822A6DDD20045786E /* Spoon.swift in Sources */,
 				8BA854C12296EE5D00153B57 /* main.swift in Sources */,
+				8B3979A622A6DD3F0045786E /* AmericanFist.swift in Sources */,
 				8BCC59F6228362F5007948F2 /* Warrior.swift in Sources */,
+				8B3979A222A6DAC10045786E /* WoodStick.swift in Sources */,
 				8BCC59F822836318007948F2 /* Paladin.swift in Sources */,
 				8BCC59FC22836357007948F2 /* Thief.swift in Sources */,
 				8BCC59FE2283636D007948F2 /* Priest.swift in Sources */,
 				8BA854BF2296EC1300153B57 /* Game.swift in Sources */,
 				8BCC59FA22836341007948F2 /* Wizard.swift in Sources */,
+				8B3979A022A6DA460045786E /* NurseWand.swift in Sources */,
+				8B3979A422A6DB840045786E /* FireWand.swift in Sources */,
 				8BCC59F422836177007948F2 /* Character.swift in Sources */,
+				8B39799D22A6D9D10045786E /* ExtraWeapon.swift in Sources */,
 				8BCC5A0022836386007948F2 /* Mage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import Foundation
 
 /*
  This class contains all the Player mecanics.
- The principals methods for the good opertaion of this project are in this class.
+ The principals methods for the good operation of this project are in this class.
  
  LIST OF TOOLS IN THE CLASS AND METHODS REFERE TO THEM:
  Player informations: -setName
@@ -49,10 +49,9 @@ class Player {
     init(number: Int) {
         self.number = number
     }
-    /////////////////////////////
-    //MARK: PLAYER INFORMATIONS//
-    /////////////////////////////
-    
+
+    //MARK: -PLAYER INFORMATIONS
+
     //This method ask the name of the player and verify if there is no space and if the name is empty.
     func setName() {
         print("Quel est le nom du joueur \(number) ?")
@@ -190,9 +189,9 @@ class Player {
         if team[numberFighter].pv <= 0 {
             print("Vous ne pouvez pas choisir un combattant KO.")
             chooseFighter()
-        } else {
+        } else if let lastFighter = fighter.last {
             fighter.append(team[numberFighter])
-            print("Vous avez choisi d'attaquer avec \(fighter.last!.name) ")
+            print("Vous avez choisi d'attaquer avec \(lastFighter.name) ")
         }
     }
   
@@ -262,14 +261,14 @@ class Player {
             presentationBonusWeapon(weaponName: bonusWeapon[numb].name)
             retrieveLifePoints(damagePoints: bonusWeapon[numb].damage, weaponName: bonusWeapon[numb].name)
         }
-        else if numb == 4 {
+        else if numb == 4, let lastFighter = fighter.last, let lastTarget = target.last {
             presentationBonusWeapon(weaponName: bonusWeapon[numb].name)
             target.last!.pv -= bonusWeapon[numb].damage
             separateLine()
-            print("\(name) attaque \(target.last!.name) avec \(fighter.last!.name) armé de \(bonusWeapon[numb].name) et lui donne 30 points de vie.")
+            print("\(name) attaque \(lastTarget.name) avec \(lastFighter.name) armé de \(bonusWeapon[numb].name) et lui donne 30 points de vie.")
             if target.last!.pv == target.last!.pvMax {
                 separateLine()
-                print("Les points de vie de \(target.last!.name) sont au maximum l'attaque n'a donc pas fait d'effet.")
+                print("Les points de vie de \(lastTarget.name) sont au maximum l'attaque n'a donc pas fait d'effet.")
             }
         }
         else {

@@ -28,6 +28,7 @@ class Game {
     var player1: Player
     var player2: Player
     var numberTurn = 0
+
     init(player1: Player, player2: Player) {
         self.player1 = player1
         self.player2 = player2

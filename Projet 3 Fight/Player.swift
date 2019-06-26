@@ -7,33 +7,44 @@
 //
 
 import Foundation
-
 /*
  This class contains all the Player mecanics.
  The principals methods for the good operation of this project are in this class.
  
  LIST OF TOOLS IN THE CLASS AND METHODS REFERE TO THEM:
- Player informations: -setName
+ Player informations:
+ -setName
  -verifySameName
  -enemy
- -playerTeam (verifyAvailability(removeCharacter))
+ -playerTeam
+ -verifyAvailability
+ -removeCharacter
  -showTeam
  -showEnemyTeam
  
- Choose a fighter and a target in a turn: -chooseFighter (fighterAvailability)
- -chooseTarget (targetAvailability)
+ Choose a fighter and a target in a turn:
+ -chooseFighter
+ -fighterAvailability
+ -chooseTarget
+ -targetAvailability
  
- Fight mecanics in a trun: -attackOrHeal
- -attackNormalOrWithBonusWeapon (presentationBonusWeapon)
+ Fight mecanics in a trun:
+ -attackOrHeal
+ -attackNormalOrWithBonusWeapon
+ -presentationBonusWeapon
  -retrieveLifePoints
- -healTeamMate (availabilityToHeal)
+ -healTeamMate
+ -availabilityToHeal
  
- Check team and character: -checkTeamAlive
+ Check team and character:
+ -checkTeamAlive
  -checkPv
  
- Graphic help: -separateLine
+ Graphic help:
+ -separateLine
  
- Order call of methods: -fight
+ Order call of methods:
+ -fight
  */
 
 
@@ -91,7 +102,7 @@ class Player {
     }
     
     //This method ask to the players to choose his team of fighter.
-    func playerTeam() {
+    func setPlayerTeam() {
         print("\(name) c'est à votre tour de choisir. Tapez le nombre attaché au personnage pour le choisir.")
         if let choice = readLine(){
             switch choice {
@@ -121,7 +132,7 @@ class Player {
                 }
             default:
                 print("Vous devez rentrer un nombre entre 1 et 6.")
-                playerTeam()            }
+                setPlayerTeam()            }
         }
     }
     
@@ -134,7 +145,7 @@ class Player {
     private func verifyAvailability(numberAvailability: Int) -> Bool {
         if dictCharacter[numberAvailability] == nil {
             print ("Ce personnage a déjà été choisi.")
-            playerTeam()
+            setPlayerTeam()
             return false
         } else {
             print ("Ce personnage a été rajouté à votre équipe.")
@@ -223,7 +234,7 @@ class Player {
         } else {
             target.append(enemyPlayer.team[numberTarget])
             if let lastTarget = target.last {
-            print("Vous choisissez d'attaquer \(lastTarget.name).")
+                print("Vous choisissez d'attaquer \(lastTarget.name).")
             }
         }
     }
@@ -235,27 +246,29 @@ class Player {
     //This method ask if the choice of the player is to attock or to heal a teammate if the choosen fighter is a mage or a wizard.
     private func attackOrHeal() {
         if let lastFighter = fighter.last {
-        if lastFighter.type == Type.mage.rawValue || lastFighter.type == Type.wizard.rawValue {
-            print("Tapez 1 pour attaquer quelqu'un de l'équipe adverse ou 2 pour soigner un de vos personnages.")
-            if let choice = readLine() {
-                switch choice {
-                case "1":
-                    chooseTarget()
-                    attackNormalOrWithBonusWeapon()
-                case "2":
-                    print("Tapez le numéro du personnage que vous voulez soigner dans votre équipe.")
-                    healTeamMate()
-                default:
-                    print("Vous devez rentrer un nombre entre 1 et 2.")
-                    attackOrHeal()
+            if lastFighter.type == Type.mage.rawValue || lastFighter.type == Type.wizard.rawValue {
+                print("Tapez 1 pour attaquer quelqu'un de l'équipe adverse ou 2 pour soigner un de vos personnages.")
+                if let choice = readLine() {
+                    switch choice {
+                    case "1":
+                        chooseTarget()
+                        attackNormalOrWithBonusWeapon()
+                        separateLine()
+                    case "2":
+                        print("Tapez le numéro du personnage que vous voulez soigner dans votre équipe.")
+                        healTeamMate()
+                        separateLine()
+                    default:
+                        print("Vous devez rentrer un nombre entre 1 et 2.")
+                        attackOrHeal()
+                    }
                 }
             }
-        }
-        else {
-            chooseTarget()
-            attackNormalOrWithBonusWeapon()
-        }
-        separateLine()
+            else {
+                chooseTarget()
+                attackNormalOrWithBonusWeapon()
+                separateLine()
+            }
         }
     }
     
@@ -265,6 +278,7 @@ class Player {
         let numb = Int(arc4random_uniform(UInt32(20)))
         if numb <= 3 {
             presentationBonusWeapon(weaponName: bonusWeapon[numb].name)
+            separateLine()
             retrieveLifePoints(damagePoints: bonusWeapon[numb].damage, weaponName: bonusWeapon[numb].name)
         }
         else if numb == 4, let lastFighter = fighter.last, let lastTarget = target.last {
@@ -273,34 +287,32 @@ class Player {
             separateLine()
             print("\(name) attaque \(lastTarget.name) avec \(lastFighter.name) armé de \(bonusWeapon[numb].name) et lui donne 30 points de vie.")
             if lastTarget.pv == lastTarget.pvMax {
-                separateLine()
                 print("Les points de vie de \(lastTarget.name) sont au maximum l'attaque n'a donc pas fait d'effet.")
             }
         }
         else {
             if let lastFighter = fighter.last {
-            retrieveLifePoints(damagePoints: lastFighter.weaponDmg, weaponName: lastFighter.weapon)
+                separateLine()
+                retrieveLifePoints(damagePoints: lastFighter.weaponDmg, weaponName: lastFighter.weapon)
             }
-            }
+        }
     }
     
     //This method present the bonus weapon if there is one.
     private func presentationBonusWeapon(weaponName: String) {
         if let lastFighter = fighter.last {
-        separateLine()
-        print("Un coffre est apparu devant \(lastFighter.name) avec \(weaponName) à l'intérieur. \(lastFighter.name) se voit contraint de l'utiliser!")
-        separateLine()
+            separateLine()
+            print("Un coffre est apparu devant \(lastFighter.name) avec \(weaponName) à l'intérieur. \(lastFighter.name) se voit contraint de l'utiliser!")
         }
-        }
+    }
     
     //This method calculate the attack and retrieve life points to the target.
     private func retrieveLifePoints(damagePoints: Int, weaponName: String) {
         if let lastTarget = target.last, let lastFighter = fighter.last {
-        lastTarget.pv -= damagePoints
-        separateLine()
-        print("\(name) attaque \(lastTarget.name) avec \(lastFighter.name) armé \(weaponName) et inflige \(damagePoints) points de dommage.")
+            lastTarget.pv -= damagePoints
+            print("\(name) attaque \(lastTarget.name) avec \(lastFighter.name) armé \(weaponName) et inflige \(damagePoints) points de dommage.")
         }
-        }
+    }
     
     //This method permit the player to choose the teammate to heal.
     private func healTeamMate() {
@@ -327,10 +339,12 @@ class Player {
             print("Vous avez soigné \(team[numberTeamMate].name) de 20 points de vie.")
         }
         else if team[numberTeamMate].pv == team[numberTeamMate].pvMax {
+            separateLine()
             print("Vous ne pouvez pas soigner un combattant qui a déjà ses points de vie au maximum.")
             attackOrHeal()
         }
         else {
+            separateLine()
             print("Vous ne pouvez pas soigner un combattant KO.")
             attackOrHeal()
         }

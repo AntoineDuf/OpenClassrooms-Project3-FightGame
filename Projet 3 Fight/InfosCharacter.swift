@@ -10,7 +10,7 @@ import Foundation
 
 /*
  This file contains 3 enumeration of all the informations need for each character.
- It also contains a dictionnary of all the character that help the playerTeam method in Player for the creation  of the two player team.
+ It also contains a dictionnary of all the character that help the setPlayerTeam method in Player for the creation  of the two player team.
  */
 
 enum Name: String {

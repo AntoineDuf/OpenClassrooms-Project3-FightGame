@@ -60,8 +60,8 @@ class Game {
     private func createPlayerTeam() {
         print("Il est maintenant temps de choisir vos équipes.")
         while player1.team.count < 3 && player2.team.count < 3{
-            player1.playerTeam()
-            player2.playerTeam()
+            player1.setPlayerTeam()
+            player2.setPlayerTeam()
         }
     }
     
@@ -86,6 +86,7 @@ class Game {
     private func checkVictory() {
         if player1.checkTeamAlive() {
             print("\(player2.name) gagne !!!")
+            
         }
         else if player2.checkTeamAlive() {
             print("\(player1.name) gagne !!!")

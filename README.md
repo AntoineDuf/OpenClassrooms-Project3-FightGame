@@ -6,6 +6,7 @@ Must be running Mac OS
 
 ## Installing :
 
+GitHub repository: https://github.com/AntoineDuf/OpenClassrooms-Project3-FightGame
 clone the repository on your local machine and open Xcode and then build the project.
 
 ## Presentation of the game :

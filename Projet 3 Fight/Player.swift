@@ -16,9 +16,13 @@ import Foundation
  -setName
  -verifySameName
  -enemy
- -playerTeam
- -verifyAvailability
+ -setPlayerTeam
  -removeCharacter
+ -verifyAvailability
+ -setNameCharacter
+ -nameCharacterAvailabilty
+ -answerOfQuestionContainsSpace
+ -answerOfQuestionIsEmpty
  -showTeam
  -showEnemyTeam
  
@@ -60,38 +64,33 @@ class Player {
     init(number: Int) {
         self.number = number
     }
-    
+
     //MARK: -PLAYER INFORMATIONS
-    
+
     //This method ask the name of the player and verify if there is no space and if the name is empty.
     func setName() {
         print("Quel est le nom du joueur \(number) ?")
         if let name = readLine() {
             self.name = name
         }
-        if name.contains(" ") {
-            print("Les espaces sont interdits !")
+        if answerOfQuestionContainsSpace(answer: name) {
             setName()
-        }
-        else if name.isEmpty {
-            print("Vous devez rentrer un nom !")
+        } else if answerOfQuestionIsEmpty(answer: name) {
             setName()
-            
-        }
-        else {
+        } else {
             print("Bonjour \(name) !")
         }
     }
-    
+
     //This method verify if the same are the same or not.
     func verifySameName() {
-        if player1.name == player2.name {
+        if player1.name.lowercased() == player2.name.lowercased() {
             print("Joueur 2 vous ne pouvez pas choisir le même nom que \(player1.name).")
             player2.setName()
             verifySameName()
         }
     }
-    
+
     //This method create an enemy player for each player.
     func enemy() {
         if number == 1 {
@@ -100,70 +99,119 @@ class Player {
             enemyPlayer = player1
         }
     }
-    
+
     //This method ask to the players to choose his team of fighter.
     func setPlayerTeam() {
-        print("\(name) c'est à votre tour de choisir. Tapez le nombre attaché au personnage pour le choisir.")
+        print("\(name) c'est à votre tour de choisir. Tapez le nombre attaché à la classe pour créer un personnage.")
         if let choice = readLine(){
             switch choice {
             case "1":
                 if verifyAvailability(numberAvailability: 1) {
                     team.append(Warrior())
+                    setNameCharacter()
                 }
             case "2":
                 if verifyAvailability(numberAvailability: 2) {
                     team.append(Paladin())
+                    setNameCharacter()
                 }
             case "3":
                 if verifyAvailability(numberAvailability: 3) {
                     team.append(Mage())
+                    setNameCharacter()
                 }
             case "4":
                 if verifyAvailability(numberAvailability: 4) {
                     team.append(Wizard())
+                    setNameCharacter()
                 }
             case "5":
                 if verifyAvailability(numberAvailability: 5) {
                     team.append(Priest())
+                    setNameCharacter()
                 }
             case "6":
                 if verifyAvailability(numberAvailability: 6) {
                     team.append(Thief())
+                    setNameCharacter()
                 }
             default:
                 print("Vous devez rentrer un nombre entre 1 et 6.")
                 setPlayerTeam()            }
         }
     }
-    
+
     //This method prevent a character to be pick two time.
     private func removeCharacter(forKey: Int) {
         dictCharacter.removeValue(forKey: forKey)
     }
-    
+
     //This method verify the disponibility of a character.
     private func verifyAvailability(numberAvailability: Int) -> Bool {
         if dictCharacter[numberAvailability] == nil {
-            print ("Ce personnage a déjà été choisi.")
+            print ("Ce type de personnage a déjà été choisi.")
             setPlayerTeam()
             return false
         } else {
-            print ("Ce personnage a été rajouté à votre équipe.")
             removeCharacter(forKey: numberAvailability)
             return true
         }
     }
-    
+
+    //This method permit to choose the name of the characters.
+    private func setNameCharacter() {
+        if let teamLast = team.last {
+            print("Quel nom voulez vous donner au \(teamLast.type) ?")
+            if let name = readLine() {
+                nameCharacterAvailabilty(availabileName: name)
+            }
+        }
+    }
+
+    //This method verify if the name of the character is availabile or not.
+    private func nameCharacterAvailabilty(availabileName: String) {
+        if arrayNameCharacter.contains(availabileName.lowercased()) {
+            print("Ce nom a deja été choisi.")
+            setNameCharacter()
+        } else if answerOfQuestionContainsSpace(answer: availabileName) {
+            setNameCharacter()
+        } else if answerOfQuestionIsEmpty(answer: availabileName) {
+            setNameCharacter()
+        } else {
+            if let teamLast = team.last {
+                teamLast.name = availabileName
+                arrayNameCharacter.append(availabileName.lowercased())
+                print ("\(teamLast.name) le \(teamLast.type) a été rajouté a l'équipe de \(name).")
+            }
+        }
+    }
+
+    //This method permit to verify if a answer of a question might be space.
+    private func answerOfQuestionContainsSpace(answer: String) -> Bool {
+        if answer.contains(" ") {
+            print("Les espaces sont interdits !")
+        }
+        return answer.contains(" ")
+    }
+
+    //This method permit to verify if a answer of a question might be empty.
+    private func answerOfQuestionIsEmpty(answer: String) -> Bool {
+        if answer.isEmpty {
+            print("Vous devez rentrer un nom !")
+        }
+        return answer.isEmpty
+    }
+
     //This method permit to see the fighter team.
     private func showTeam() {
         print("\(name) a dans son équipe:")
         var numb = 1
         for i in 0..<team.count {
-            team[i].presentation(number: numb)
+            team[i].presentationCharacter(number: numb)
             numb += 1
         }
     }
-    
+
     //This method permit to see the enemy fighter team.
     private func showEnemyTeam() {
         if number == 1 {
@@ -172,11 +220,11 @@ class Player {
             player1.showTeam()
         }
     }
-    
+
     /////////////////////////////////////////////////
     //MARK: CHOOSE A FIGHTER AND A TARGET IN A TURN//
     /////////////////////////////////////////////////
-    
+
     //This method permit to choose a fighter for the turn.
     private func chooseFighter() {
         print("\(name) choisissez votre combattant en tapant son numéro.")
@@ -194,7 +242,7 @@ class Player {
             }
         }
     }
-    
+
     //This method check if the chosen fighter is KO or if is he available.
     private func fighterAvailability(numberFighter: Int) {
         if team[numberFighter].pv <= 0 {
@@ -207,7 +255,7 @@ class Player {
             }
         }
     }
-    
+
     //This method permit to choose a target for the turn.
     private func chooseTarget() {
         print("\(name) Choisissez une cible en tapant son numéro.")
@@ -225,7 +273,7 @@ class Player {
             }
         }
     }
-    
+
     //This method check if the chosen target is KO or if is he available.
     private func targetAvailability(numberTarget: Int) {
         if enemyPlayer.team[numberTarget].pv <= 0 {
@@ -238,11 +286,11 @@ class Player {
             }
         }
     }
-    
+
     ////////////////////////////////////////////
     //MARK: ATTACK OR HEAL MECANICS IN A TURN //
     ////////////////////////////////////////////
-    
+
     //This method ask if the choice of the player is to attock or to heal a teammate if the choosen fighter is a mage or a wizard.
     private func attackOrHeal() {
         if let lastFighter = fighter.last {
@@ -271,7 +319,7 @@ class Player {
             }
         }
     }
-    
+
     //This method generate a normal attack with the weapon of the character or the if it is spawn a bonus weapon in a vault.
     private func attackNormalOrWithBonusWeapon() {
         let bonusWeapon = [WoodStick(), FireWand(), AmericanFist(), Spoon(), NurseWand()]
@@ -297,7 +345,7 @@ class Player {
             }
         }
     }
-    
+
     //This method present the bonus weapon if there is one.
     private func presentationBonusWeapon(weaponName: String) {
         if let lastFighter = fighter.last {
@@ -305,7 +353,7 @@ class Player {
             print("Un coffre est apparu devant \(lastFighter.name) avec \(weaponName) à l'intérieur. \(lastFighter.name) se voit contraint de l'utiliser!")
         }
     }
-    
+
     //This method calculate the attack and retrieve life points to the target.
     private func retrieveLifePoints(damagePoints: Int, weaponName: String) {
         if let lastTarget = target.last, let lastFighter = fighter.last {
@@ -313,7 +361,7 @@ class Player {
             print("\(name) attaque \(lastTarget.name) avec \(lastFighter.name) armé \(weaponName) et inflige \(damagePoints) points de dommage.")
         }
     }
-    
+
     //This method permit the player to choose the teammate to heal.
     private func healTeamMate() {
         if let choice = readLine() {
@@ -330,7 +378,7 @@ class Player {
             }
         }
     }
-    
+
     //This method verify if the choosen teammate is not KO or if he doesn't have his life point to the maximum
     private func availabilityToHeal(numberTeamMate: Int) {
         if team[numberTeamMate].pv > 0 && team[numberTeamMate].pv < team[numberTeamMate].pvMax {
@@ -349,16 +397,16 @@ class Player {
             attackOrHeal()
         }
     }
-    
+
     /////////////////////////////////////////
     //MARK: CHECK TEAM PLAYER AND CHARACTER//
     /////////////////////////////////////////
-    
+
     //This method check if a team is completely KO or not.
     func checkTeamAlive() -> Bool {
         return team[0].pv == 0 && team[1].pv == 0 && team[2].pv == 0
     }
-    
+
     //This method permit to check that the pv of the character or never below 0 and never above of their maximum life points.
     private func checkPv() {
         for i in 0..<3 {
@@ -372,20 +420,20 @@ class Player {
             }
         }
     } 
-    
+
     //////////////////////
     //MARK: GRAPHIC HELP//
     //////////////////////
-    
+
     //This method permit to have a better readability in the terminal mode.
-    func separateLine() {
+    private func separateLine() {
         print("--------------------------------------------------------------")
     }
-    
+
     ///////////////////////////////
     //MARK: ORDER CALL OF METHODS//
     ///////////////////////////////
-    
+
     //This method call all the methods of a fight turn.
     func fight() {
         print("\(name) c'est à votre tour de jouer.")

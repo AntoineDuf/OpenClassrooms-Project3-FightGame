@@ -15,7 +15,6 @@ import Foundation
  
  - Instantiate each players and their teams: -presentCharacter
                                              -createPlayerTeam
-                                             -createEnemy
  
  - Turn by turn logic: -turnByTurn
  
@@ -35,7 +34,8 @@ class Game {
         player1.setName()
         player2.setName()
         player2.verifySameName()
-        createEnemy()
+        player1.enemy()
+        player2.enemy()
         presentCharacter()
         createPlayerTeam()
         turnByTurn()
@@ -43,19 +43,19 @@ class Game {
         printNumberOfTurn()
         winnerTeamAndLooserTeam()
     }
-    
+
     //This method present all the different chararcter to the players.
     private func presentCharacter() {
-        print("Choisissez vos personnages."
-            + "\nAttention un personnage peut être choisi une seule fois.")
-        Warrior().presentation(number: 1)
-        Paladin().presentation(number: 2)
-        Mage().presentation(number: 3)
-        Wizard().presentation(number: 4)
-        Priest().presentation(number: 5)
-        Thief().presentation(number: 6)
+        print("Il est maintenant le temps de définir vos équipes."
+            + "\nAttention une classe de personnage peut être choisi une seule fois. Les voici:")
+        Warrior().presentationType(number: 1)
+        Paladin().presentationType(number: 2)
+        Mage().presentationType(number: 3)
+        Wizard().presentationType(number: 4)
+        Priest().presentationType(number: 5)
+        Thief().presentationType(number: 6)
     }
-    
+
     //This method call the creation of the team of each player.
     private func createPlayerTeam() {
         print("Il est maintenant temps de choisir vos équipes.")
@@ -64,13 +64,7 @@ class Game {
             player2.setPlayerTeam()
         }
     }
-    
-    //This method create an enemy for each player.
-    private func createEnemy() {
-        player1.enemy()
-        player2.enemy()
-    }
-    
+
     //This method is a loop who looping until one of the team have all this character KO.
     private func turnByTurn() {
         while !player1.checkTeamAlive() && !player2.checkTeamAlive() {
@@ -81,7 +75,7 @@ class Game {
             }
         }
     }
-    
+
     //This method shows which team has win.
     private func checkVictory() {
         if player1.checkTeamAlive() {
@@ -92,12 +86,12 @@ class Game {
             print("\(player1.name) gagne !!!")
         }
     }
-    
+
     //This method shows in how many turns the game had a winner.
     private func printNumberOfTurn() {
         print("Le jeu s'est déroulé en \(numberTurn) tours.")
     }
-    
+
     //This method shows which team is the winner and which is the looser and shows each team and their properties.
     private func winnerTeamAndLooserTeam() {
         var winner = player1
@@ -109,13 +103,13 @@ class Game {
         print("L'équipe gagnante est celle de \(winner.name) et est composée de:")
         var numberWinner = 1
         for i in 0..<winner.team.count {
-            winner.team[i].presentation(number: numberWinner)
+            winner.team[i].presentationCharacter(number: numberWinner)
             numberWinner += 1
         }
         print("L'équipe perdante est celle de \(looser.name) et est composée de:")
         var numberLooser = 1
         for i in 0..<looser.team.count {
-            looser.team[i].presentation(number: numberLooser)
+            looser.team[i].presentationCharacter(number: numberLooser)
             numberLooser += 1
         }
     }

@@ -12,6 +12,6 @@ import Foundation
 
 class Thief: Character {
     init() {
-        super.init(type: Type.thief.rawValue, name: Name.thief.rawValue, pv: 140, weapon: Weapon.thief.rawValue, weaponDmg: 50, pvMax: 140)
+        super.init(type: Type.thief.rawValue, name: "", pv: 140, weapon: Weapon.thief.rawValue, weaponDmg: 50, pvMax: 140)
     }
 }

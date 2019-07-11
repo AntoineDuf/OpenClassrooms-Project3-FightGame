@@ -13,14 +13,14 @@ import Foundation
  It also contains a dictionnary of all the character that help the setPlayerTeam method in Player for the creation  of the two player team.
  */
 
-enum Name: String {
-    case warrior = "Akin"
-    case paladin = "Jacob"
-    case mage = "Aldat"
-    case wizard = "Merlin"
-    case priest = "Gabriel"
-    case thief = "Jaskier"
-}
+//enum Name: String {
+//    case warrior = "Akin"
+//    case paladin = "Jacob"
+//    case mage = "Aldat"
+//    case wizard = "Merlin"
+//    case priest = "Gabriel"
+//    case thief = "Jaskier"
+//}
 
 enum Type: String {
     case warrior = "guerrier"
@@ -41,3 +41,5 @@ enum Weapon: String {
 }
 
 var dictCharacter = [1: Warrior(),2: Paladin(),3: Mage(),4: Wizard(),5: Priest(),6: Thief()]
+
+var arrayNameCharacter = [String]()

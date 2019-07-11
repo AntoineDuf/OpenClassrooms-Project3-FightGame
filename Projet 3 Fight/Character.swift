@@ -20,8 +20,12 @@ class Character {
     var weaponDmg: Int
     let pvMax: Int
     
-    func presentation(number: Int) {
-        print("\(number). \(name) le \(type) avec \(pv) points de vie et est armé \(weapon) qui inflige \(weaponDmg) points de dommage.")
+    func presentationType(number: Int) {
+        print("\(number). Le \(type) avec \(pv) points de vie qui sera armé \(weapon) qui inflige \(weaponDmg) points de dommage.")
+    }
+    
+    func presentationCharacter(number: Int) {
+        print("\(number). \(name) le \(type) avec \(pv) points de vie qui est armé \(weapon) qui inflige \(weaponDmg) points de dommage.")
     }
     
     init(type: String, name: String, pv: Int, weapon: String, weaponDmg: Int, pvMax: Int) {

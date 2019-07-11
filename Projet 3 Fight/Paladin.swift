@@ -12,7 +12,7 @@ import Foundation
 
 class Paladin: Character {
     init() {
-        super.init(type: Type.paladin.rawValue, name: Name.paladin.rawValue, pv: 200, weapon: Weapon.paladin.rawValue, weaponDmg: 40, pvMax: 200)
+        super.init(type: Type.paladin.rawValue, name: "", pv: 200, weapon: Weapon.paladin.rawValue, weaponDmg: 40, pvMax: 200)
     }
 }
 
